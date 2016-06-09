@@ -35,7 +35,7 @@ public class PriceTests extends BaseConfiguration {
 		StarbucksVerismoPods verismoPodsPage = PageFactory.initElements(getDriver(), StarbucksVerismoPods.class);
 		ProductCard productCard = verismoPodsPage.findProductInListByName(productName);
 		productCard.addToBag();
-		MyBag myBag = verismoPodsPage.viewBag();
+		MyBag myBag = verismoPodsPage.goToMyBag();
 		Assert.assertEquals(myBag.getEstimatedTotal(), estimatedTotal, "El total estimado no es correcto");
 	}
 }

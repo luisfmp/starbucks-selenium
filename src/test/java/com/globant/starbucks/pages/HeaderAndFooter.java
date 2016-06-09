@@ -112,7 +112,7 @@ public class HeaderAndFooter extends Selenium {
 		return Integer.parseInt(carItems.findElement(By.cssSelector("span")).getText());
 	}
 
-	public MyBag viewBag() {
+	public MyBag goToMyBag() {
 		if (getItemsInCart() > 0) {
 			if (!getDriver().findElement(viewBagLocator).isDisplayed()) {
 				miniCart.click();
