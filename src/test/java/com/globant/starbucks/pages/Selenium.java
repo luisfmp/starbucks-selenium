@@ -15,10 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  *
  *         Contiene funciones generales para las demas paginas
  */
-/**
- * @author lu.martinez
- *
- */
+
 public class Selenium {
 
 	private WebDriver driver;
@@ -35,62 +32,86 @@ public class Selenium {
 	public void setDriver(WebDriver driver) {
 		this.driver = driver;
 	}
-	
+
 	/**
 	 * Hace scroll hacia abajo por 500px
 	 */
-	public void scrollDown(){
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+	public void scrollDown() {
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,500)");
 	}
-	
+
 	/**
 	 * Hace scroll hacia arriba por 500px
 	 */
-	public void scrollUp(){
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+	public void scrollUp() {
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,-500)");
 	}
-	
+
 	/**
 	 * Hace scroll hacia la izquierda por 500px
 	 */
-	public void scrollLeft(){
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+	public void scrollLeft() {
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(-500,0)");
 	}
-	
+
 	/**
 	 * Hace scroll hacia la derecha por 500px
 	 */
-	public void scrollRight(){
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+	public void scrollRight() {
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(500,0)");
 	}
-	
+
 	/**
 	 * Espera por un elemento hasta que aparece dentro del DOM
-	 * @param selector El selector para encontrar el elmento
-	 * @param timeout Opcional. El tiempo máximo de espera, en segundos, por el elemento, si no se asigna el default es 10
+	 * 
+	 * @param selector
+	 *            El selector para encontrar el elmento
+	 * @param timeout
+	 *            Opcional. El tiempo mï¿½ximo de espera, en segundos, por el
+	 *            elemento, si no se asigna el default es 10
 	 * @return
 	 */
-	public WebElement waitForElementPresent(By selector, Integer... timeout){
-		int to = timeout.length > 0 ? timeout[0] : 10; 
-		WebElement myDynamicElement = (new WebDriverWait(driver, to))
-				  .until(ExpectedConditions.presenceOfElementLocated(selector));
-		return myDynamicElement;
-	}
-	
-	/**
-	 * Espera por un elemento hasta que aparece dentro del DOM
-	 * @param selector El selector para encontrar el elmento
-	 * @param timeout Opcional. El tiempo máximo de espera, en segundos, por el elemento, si no se asigna el default es 10
-	 * @return
-	 */
-	public WebElement waitForElementVisible(By selector, Integer... timeout){
+	public WebElement waitForElementPresent(By selector, Integer... timeout) {
 		int to = timeout.length > 0 ? timeout[0] : 10;
 		WebElement myDynamicElement = (new WebDriverWait(driver, to))
-				  .until(ExpectedConditions.visibilityOfElementLocated(selector));
+				.until(ExpectedConditions.presenceOfElementLocated(selector));
 		return myDynamicElement;
+	}
+
+	/**
+	 * Espera por un elemento hasta que aparece dentro del DOM
+	 * 
+	 * @param selector
+	 *            El selector para encontrar el elmento
+	 * @param timeout
+	 *            Opcional. El tiempo mï¿½ximo de espera, en segundos, por el
+	 *            elemento, si no se asigna el default es 10
+	 * @return
+	 */
+	public WebElement waitForElementVisible(By selector, Integer... timeout) {
+		int to = timeout.length > 0 ? timeout[0] : 10;
+		WebElement myDynamicElement = (new WebDriverWait(driver, to))
+				.until(ExpectedConditions.visibilityOfElementLocated(selector));
+		return myDynamicElement;
+	}
+
+	/**
+	 * Espera por un elemento hasta que desaparece dentro del DOM
+	 * 
+	 * @param selector
+	 *            El selector para encontrar el elmento
+	 * @param timeout
+	 *            Opcional. El tiempo mï¿½ximo de espera, en segundos, por el
+	 *            elemento, si no se asigna el default es 10
+	 * @return
+	 */
+	public void waitForElementNotPresent(By selector, Integer... timeout) {
+		int to = timeout.length > 0 ? timeout[0] : 10;
+		(new WebDriverWait(driver, to)).until(ExpectedConditions
+				.not(ExpectedConditions.presenceOfElementLocated(selector)));
 	}
 }

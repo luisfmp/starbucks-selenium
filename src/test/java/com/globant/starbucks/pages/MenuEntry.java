@@ -10,6 +10,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 import com.globant.starbucks.pages.elements.ProductCard;
 
@@ -22,11 +23,12 @@ public class MenuEntry extends HeaderAndFooter {
 	@FindBy(css = ".bannercontent.container > h1")
 	private WebElement title;
 
-	@FindBy(id = "sortrule")
+	@FindBy(css = ".desktopview #sortrule")
 	private WebElement sortSelect;
 
 	By resultAreaLocator = By.cssSelector("div.productresultarea");
 	By productCardLocator = By.cssSelector("div.product_card");
+	By loadingLocator = By.cssSelector(".loading.productloader");
 
 	private String productNameSelectorPattern = ".product_name[title='%s']";
 	private String productCardParentPattern = "ancestor::div[@class='product_card']";
@@ -68,5 +70,21 @@ public class MenuEntry extends HeaderAndFooter {
 		} else {
 			return null;
 		}
+	}
+	
+	public ProductCard findFirstProductInList(){
+		return findProductByResultsPosition(0);
+	}
+	
+	public ProductCard findLastProductInList(){
+		List<WebElement> productList = getDriver().findElement(resultAreaLocator).findElements(productCardLocator);
+		int last = productList.size() - 1;
+		return new ProductCard(productList.get(last), getDriver());
+	}
+	
+	public void sortByVisibleText(String option){
+		Select sort = new Select(sortSelect);
+		sort.selectByVisibleText(option);
+		waitForElementVisible(resultAreaLocator);
 	}
 }

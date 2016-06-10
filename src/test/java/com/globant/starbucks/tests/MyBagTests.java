@@ -32,7 +32,7 @@ public class MyBagTests extends BaseConfiguration {
 		home.goToPageByPrincipalMenu("more", "Sale");
 		Sale salePage = PageFactory.initElements(getDriver(), Sale.class);
 		salePage.togglePriceFilter("$25 to $50");
-		ProductCard productCard = salePage.findProductByResultsPosition(0);
+		ProductCard productCard = salePage.findFirstProductInList();
 		String name = productCard.getProductName();
 		productCard.addToBag();
 		MyBag myBag = salePage.goToMyBag();
