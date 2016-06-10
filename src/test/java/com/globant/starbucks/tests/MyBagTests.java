@@ -1,6 +1,7 @@
 package com.globant.starbucks.tests;
 
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -35,7 +36,8 @@ public class MyBagTests extends BaseConfiguration {
 		String name = productCard.getProductName();
 		productCard.addToBag();
 		MyBag myBag = salePage.goToMyBag();
-		myBag.delteByProductName(name);
+		myBag.deleteByProductName(name);
+		Assert.assertEquals(myBag.isCartEmpty(), true, "El carrito no está vacío");
 	}
 
 }
