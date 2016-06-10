@@ -21,7 +21,8 @@ public class MyBag extends HeaderAndFooter {
 	private WebElement cartItemsContainer;
 	
 	private By removeButtonLocator = By.cssSelector("a.removeItemanchor");
-	private By cartItemWrapper = By.xpath("ancestor::div[@class='cartItemwrapper']");
+	private By cartItemWrapperLocator = By.xpath("ancestor::div[@class='cartItemwrapper']");
+	private By emptyCartNoticeLocator = By.cssSelector(".cartempty");
 
 	private String prodNamePattern = "a.prodname[title='%s']";
 	private String optionButtonPattern = "//button[contains(@class,'ui-state-default') and text()='%s']";
@@ -49,6 +50,10 @@ public class MyBag extends HeaderAndFooter {
 	}
 	
 	public WebElement getCartItemWrapper(WebElement element){
-		return element.findElement(cartItemWrapper);
+		return element.findElement(cartItemWrapperLocator);
+	}
+	
+	public boolean isCartEmpty(){
+		return getDriver().findElement(emptyCartNoticeLocator).isDisplayed();
 	}
 }
