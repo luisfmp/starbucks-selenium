@@ -97,7 +97,7 @@ public class HeaderAndFooter extends Selenium {
 	 *            Debe ser alguno de los siguientes valores: coffee, tea,
 	 *            drinkware, equipment, subscriptions, more
 	 * @param submenu
-	 *            El valor textual del enlace, ej. "Verismo® Pods"
+	 *            El valor textual del enlace, ej. "Verismo Pods"
 	 * @return
 	 */
 	public void goToPageByPrincipalMenu(String menu, String submenu) {
@@ -116,6 +116,7 @@ public class HeaderAndFooter extends Selenium {
 		if (getItemsInCart() > 0) {
 			if (!getDriver().findElement(viewBagLocator).isDisplayed()) {
 				miniCart.click();
+				waitForElementVisible(viewBagLocator);
 			}
 		}
 

@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * Abstracción de las tarjetas de producto para una mejor manipulacion
+ * Abstraccion de las tarjetas de producto para una mejor manipulacion
  * 
  * @author lu.martinez
  *
@@ -51,7 +51,7 @@ public class ProductCard {
 
 	public void addToBag() {
 		rootElement.findElement(addToBagLocator).click();
-		//Se agrega una pausa por la animación que realiza siempre el agregar un elemento a la bolsa
+		//Se agrega una pausa por la animacion que realiza siempre el agregar un elemento a la bolsa
 		try {
 			Thread.sleep(1500);
 		} catch (InterruptedException e) {
