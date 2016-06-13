@@ -21,17 +21,16 @@ import com.globant.starbucks.pages.elements.ProductCard;
 public class MenuEntry extends HeaderAndFooter {
 
 	@FindBy(css = ".bannercontent.container > h1")
-	private WebElement title;
+	private static WebElement title;
 
 	@FindBy(css = ".desktopview #sortrule")
-	private WebElement sortSelect;
+	private static WebElement sortSelect;
 
-	By resultAreaLocator = By.cssSelector("div.productresultarea");
-	By productCardLocator = By.cssSelector("div.product_card");
-	By loadingLocator = By.cssSelector(".loading.productloader");
+	private static final By resultAreaLocator = By.cssSelector("div.productresultarea");
+	private static final By productCardLocator = By.cssSelector("div.product_card");
 
-	private String productNameSelectorPattern = ".product_name[title='%s']";
-	private String productCardParentPattern = "ancestor::div[@class='product_card']";
+	private static final String productNameSelectorPattern = ".product_name[title='%s']";
+	private static final String productCardParentPattern = "ancestor::div[@class='product_card']";
 
 	public MenuEntry(WebDriver driver) {
 		super(driver);
@@ -71,18 +70,18 @@ public class MenuEntry extends HeaderAndFooter {
 			return null;
 		}
 	}
-	
-	public ProductCard findFirstProductInList(){
+
+	public ProductCard findFirstProductInList() {
 		return findProductByResultsPosition(0);
 	}
-	
-	public ProductCard findLastProductInList(){
+
+	public ProductCard findLastProductInList() {
 		List<WebElement> productList = getDriver().findElement(resultAreaLocator).findElements(productCardLocator);
 		int last = productList.size() - 1;
 		return new ProductCard(productList.get(last), getDriver());
 	}
-	
-	public void sortByVisibleText(String option){
+
+	public void sortByVisibleText(String option) {
 		Select sort = new Select(sortSelect);
 		sort.selectByVisibleText(option);
 		waitForElementVisible(resultAreaLocator);

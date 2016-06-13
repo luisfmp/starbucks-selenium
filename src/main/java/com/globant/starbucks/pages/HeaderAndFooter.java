@@ -24,35 +24,35 @@ import com.globant.starbucks.pages.menues.Tea;
 public class HeaderAndFooter extends Selenium {
 
 	@FindBy(id = "logo")
-	private WebElement logo;
+	private static WebElement logo;
 
 	@FindBy(css = ".cartqty")
-	private WebElement carItems;
+	private static WebElement carItems;
 
 	@FindBy(css = ".cat.coffee")
-	private WebElement coffee;
+	private static WebElement coffee;
 
 	@FindBy(css = ".cat.tea")
-	private WebElement tea;
+	private static WebElement tea;
 
 	@FindBy(css = ".cat.drinkware")
-	private WebElement drinkware;
+	private static WebElement drinkware;
 
 	@FindBy(css = ".cat.equipment")
-	private WebElement equipment;
+	private static WebElement equipment;
 
 	@FindBy(css = ".cat.subscriptions")
-	private WebElement subscription;
+	private static WebElement subscription;
 
 	@FindBy(css = ".cat.more")
-	private WebElement giftsAndMore;
+	private static WebElement giftsAndMore;
 
 	@FindBy(id = "minicart")
-	private WebElement miniCart;
+	private static WebElement miniCart;
 
-	private By viewBagLocator = By.cssSelector(".minicartcheckoutnow");
+	private static final By viewBagLocator = By.cssSelector(".minicartcheckoutnow");
 
-	private String menuCssLocatorPatterns = ".cat.%s";
+	private static final String menuCssLocatorPatterns = ".cat.%s";
 
 	public HeaderAndFooter(WebDriver driver) {
 		super(driver);

@@ -15,17 +15,17 @@ import org.openqa.selenium.support.FindBy;
 public class MyBag extends HeaderAndFooter {
 
 	@FindBy(css = ".ordertot > .value")
-	private WebElement estimatedTotalValue;
+	private static WebElement estimatedTotalValue;
 	
 	@FindBy(css="div#itemscontainer > .cart")
-	private WebElement cartItemsContainer;
+	private static WebElement cartItemsContainer;
 	
-	private By removeButtonLocator = By.cssSelector("a.removeItemanchor");
-	private By cartItemWrapperLocator = By.xpath("ancestor::div[@class='cartItemwrapper']");
-	private By emptyCartNoticeLocator = By.cssSelector(".cartempty");
+	private static final By removeButtonLocator = By.cssSelector("a.removeItemanchor");
+	private static final By cartItemWrapperLocator = By.xpath("ancestor::div[@class='cartItemwrapper']");
+	private static final By emptyCartNoticeLocator = By.cssSelector(".cartempty");
 
-	private String prodNamePattern = "a.prodname[title='%s']";
-	private String optionButtonPattern = "//button[contains(@class,'ui-state-default') and text()='%s']";
+	private static final String prodNamePattern = "a.prodname[title='%s']";
+	private static final String optionButtonPattern = "//button[contains(@class,'ui-state-default') and text()='%s']";
 	
 	public MyBag(WebDriver driver) {
 		super(driver);
