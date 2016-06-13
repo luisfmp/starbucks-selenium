@@ -28,7 +28,7 @@ public class ImagesTests extends BaseConfiguration {
 
 	@Test
 	public void validateNumberOfImages() {
-		String productName = "ESPRO® Press, 18 fl oz";
+		String productName = "ESPROÂ® Press, 18 fl oz";
 		home.goHome();
 		Equipment equipmentPage = home.goToEquipmentPage();
 		equipmentPage.setTypeFilter("Manual");
