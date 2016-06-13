@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.globant.starbucks.pages.menues;
 
@@ -15,7 +15,7 @@ import com.globant.starbucks.pages.MenuEntry;
  */
 public class GiftsAndMore extends MenuEntry {
 
-	private String priceFilterSelectorPattern = ".refinement-link[title='%s']";
+	private static final String priceFilterSelectorPattern = ".refinement-link[title='%s']";
 
 	public GiftsAndMore(WebDriver driver) {
 		super(driver);

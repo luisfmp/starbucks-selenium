@@ -6,13 +6,13 @@ import org.openqa.selenium.WebDriver;
 import com.globant.starbucks.pages.MenuEntry;
 
 public class Tea extends MenuEntry{
-	
-	private String filtersTogglePattern = ".desktopview .swatchRefineLink[title='%s']";
+
+	private static final String filtersTogglePattern = ".desktopview .swatchRefineLink[title='%s']";
 
 	public Tea(WebDriver driver) {
 		super(driver);
 	}
-	
+
 	/**
 	 * Activa o desactiva un filtro haciendo click sobre el.
 	 */

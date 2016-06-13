@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.globant.starbucks.pages.elements;
 
@@ -13,19 +13,25 @@ import org.openqa.selenium.WebElement;
 public class QuickViewCard {
 
 	private WebElement rootElement;
-	
-	private String imagePaginationPattern = ".owl-pagination > .owl-page";
-	
-	private By nextImageLocator = By.cssSelector(".owl-next");
+
+	private static final String imagePaginationPattern = ".owl-pagination > .owl-page";
+
+	private static final By nextImageLocator = By.cssSelector(".owl-next");
 
 	public QuickViewCard(WebElement rootElement) {
 		this.rootElement = rootElement;
 	}
 
+	/**
+	 * @return El numero de imagenes que contiene la vista rapida del producto
+	 */
 	public int getNumberOfImages(){
 		return rootElement.findElements(By.cssSelector(imagePaginationPattern)).size();
 	}
-	
+
+	/**
+	 * Navega por el carrusel de imagenes del detalle del producto
+	 */
 	public void viewAllImages(){
 		int images = getNumberOfImages();
 		for (int i = 1; i < images; i++){

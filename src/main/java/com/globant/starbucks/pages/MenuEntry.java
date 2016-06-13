@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.globant.starbucks.pages;
 
@@ -17,6 +17,7 @@ import com.globant.starbucks.pages.elements.ProductCard;
 /**
  * @author lu.martinez
  *
+ * Contiene los componentes comunes a las paginas a las que se accede desde menu principal
  */
 public class MenuEntry extends HeaderAndFooter {
 
@@ -40,6 +41,11 @@ public class MenuEntry extends HeaderAndFooter {
 		return title.getText();
 	}
 
+	/**
+	 * Encuentra un producto por su nombre en la lista de resultados de busqueda
+	 * @param name Nombre del producto
+	 * @return El contenedor de tipo ProductCard
+	 */
 	public ProductCard findProductInListByName(String name) {
 		By productNameCssSelector = By.cssSelector(String.format(productNameSelectorPattern, name));
 		WebElement product = null;
@@ -60,6 +66,11 @@ public class MenuEntry extends HeaderAndFooter {
 		return productCard;
 	}
 
+	/**
+	 * Encuentra un producto por su posicion en la lista de resultados de busqueda
+	 * @param position El numero de la posicion del producto
+	 * @return ProductCard del producto
+	 */
 	public ProductCard findProductByResultsPosition(int position) {
 		WebElement rootElement = null;
 		List<WebElement> productList = getDriver().findElement(resultAreaLocator).findElements(productCardLocator);
@@ -71,16 +82,26 @@ public class MenuEntry extends HeaderAndFooter {
 		}
 	}
 
+	/**
+	 * @return ProductCard del primer elemento de la lista de resultados
+	 */
 	public ProductCard findFirstProductInList() {
 		return findProductByResultsPosition(0);
 	}
 
+	/**
+	 * @return ProductCard del ultimo elemento de la lista de resultados
+	 */
 	public ProductCard findLastProductInList() {
 		List<WebElement> productList = getDriver().findElement(resultAreaLocator).findElements(productCardLocator);
 		int last = productList.size() - 1;
 		return new ProductCard(productList.get(last), getDriver());
 	}
 
+
+	/**
+	 * @param option El valor por el que se realiza el ordenamiento de la lista de resultados
+	 */
 	public void sortByVisibleText(String option) {
 		Select sort = new Select(sortSelect);
 		sort.selectByVisibleText(option);

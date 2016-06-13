@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.globant.starbucks.pages;
 
@@ -67,11 +67,11 @@ public class Selenium {
 
 	/**
 	 * Espera por un elemento hasta que aparece dentro del DOM
-	 * 
+	 *
 	 * @param selector
 	 *            El selector para encontrar el elmento
 	 * @param timeout
-	 *            Opcional. El tiempo m�ximo de espera, en segundos, por el
+	 *            Opcional. El tiempo maximo de espera, en segundos, por el
 	 *            elemento, si no se asigna el default es 10
 	 * @return
 	 */
@@ -84,11 +84,11 @@ public class Selenium {
 
 	/**
 	 * Espera por un elemento hasta que aparece dentro del DOM
-	 * 
+	 *
 	 * @param selector
 	 *            El selector para encontrar el elmento
 	 * @param timeout
-	 *            Opcional. El tiempo m�ximo de espera, en segundos, por el
+	 *            Opcional. El tiempo maximo de espera, en segundos, por el
 	 *            elemento, si no se asigna el default es 10
 	 * @return
 	 */
@@ -101,11 +101,11 @@ public class Selenium {
 
 	/**
 	 * Espera por un elemento hasta que desaparece dentro del DOM
-	 * 
+	 *
 	 * @param selector
 	 *            El selector para encontrar el elmento
 	 * @param timeout
-	 *            Opcional. El tiempo m�ximo de espera, en segundos, por el
+	 *            Opcional. El tiempo maximo de espera, en segundos, por el
 	 *            elemento, si no se asigna el default es 10
 	 * @return
 	 */

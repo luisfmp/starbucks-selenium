@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.globant.starbucks.pages;
 
@@ -108,10 +108,16 @@ public class HeaderAndFooter extends Selenium {
 		getDriver().findElement(By.linkText(submenu)).click();
 	}
 
+	/**
+	 * @return El numero de articulos en el carrito de compras
+	 */
 	public int getItemsInCart() {
 		return Integer.parseInt(carItems.findElement(By.cssSelector("span")).getText());
 	}
 
+	/**
+	 * @return La pagina del detalle del carrito de compras
+	 */
 	public MyBag goToMyBag() {
 		if (getItemsInCart() > 0) {
 			if (!getDriver().findElement(viewBagLocator).isDisplayed()) {
@@ -119,7 +125,6 @@ public class HeaderAndFooter extends Selenium {
 				waitForElementVisible(viewBagLocator);
 			}
 		}
-
 		getDriver().findElement(viewBagLocator).click();
 		return PageFactory.initElements(getDriver(), MyBag.class);
 	}

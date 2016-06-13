@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.globant.starbucks.pages;
 
@@ -25,10 +25,16 @@ public class Home extends HeaderAndFooter {
 		super(driver);
 	}
 
+	/**
+	 * Abre la pagina principal
+	 */
 	public void goHome() {
 		super.getDriver().get(HOME);
 	}
 
+	/**
+	 * @return La pagina de tipo Tea, entrando desde la imagen de la pagina principal
+	 */
 	public Tea goToTeaPageThroughImage() {
 		teaImageLink.click();
 		return PageFactory.initElements(getDriver(), Tea.class);

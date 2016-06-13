@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.globant.starbucks.pages.menues;
 
@@ -15,7 +15,7 @@ import com.globant.starbucks.pages.MenuEntry;
  */
 public class Equipment extends MenuEntry {
 
-	private String typeFilterSelectorPattern = ".desktopview .swatchRefineLink[title='%s']";
+	private static final String typeFilterSelectorPattern = ".desktopview .swatchRefineLink[title='%s']";
 
 	public Equipment(WebDriver driver) {
 		super(driver);
@@ -27,6 +27,6 @@ public class Equipment extends MenuEntry {
 		typeFilterElement.click();
 	}
 
-	
+
 
 }
