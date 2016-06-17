@@ -10,6 +10,7 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 /**
  * Contiene la configuracion general de los tests
@@ -23,7 +24,7 @@ public class BaseConfiguration {
 	private WebDriver driver;
 
 	public void setUpDriver() {
-		setChromeDriver(); // Asigna el navegador a usar
+		setFirefoxDriver();// Asigna el navegador a usar
 		getDriver().manage().window().maximize();
 	}
 
@@ -41,9 +42,12 @@ public class BaseConfiguration {
 
 	public void setChromeDriver() {
 		loadProperties();
-		System.setProperty("webdriver.chrome.driver",
-				prop.getProperty("chromedriver.path"));
+		System.setProperty("webdriver.chrome.driver", prop.getProperty("chromedriver.path"));
 		this.driver = new ChromeDriver();
+	}
+
+	public void setHtmlUnitDriver() {
+		this.driver = new HtmlUnitDriver(true);
 	}
 
 	private void loadProperties() {
@@ -52,8 +56,7 @@ public class BaseConfiguration {
 			prop.load(file);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		finally{
+		} finally {
 			try {
 				file.close();
 			} catch (IOException e) {

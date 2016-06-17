@@ -29,7 +29,7 @@ public class PriceTests extends BaseConfiguration {
 	@Test
 	public void shouldBeSameEstimatedTotal() {
 		String productName = "Starbucks® Espresso Roast Espresso Verismo® Pods";
-		String estimatedTotal = "$83.07";
+		String estimatedTotal = "$68.25";
 		home.goHome();
 		home.goToPageByPrincipalMenu("coffee", "Verismo® Pods");
 		StarbucksVerismoPods verismoPodsPage = PageFactory.initElements(getDriver(), StarbucksVerismoPods.class);

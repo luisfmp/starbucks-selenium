@@ -69,7 +69,7 @@ public class ProductCard {
 		// Se agrega una pausa por la animacion que realiza siempre el agregar
 		// un elemento a la bolsa
 		try {
-			Thread.sleep(1500);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
