@@ -21,7 +21,7 @@ public class Tea extends MenuEntry{
 	 */
 	public void toggleFilterByTitle(String title){
 		By filterLocator = By.cssSelector(String.format(filtersTogglePattern, title));
-		getDriver().findElement(filterLocator).click();
+		waitForElementVisible(filterLocator).click();
 	}
 
 }
