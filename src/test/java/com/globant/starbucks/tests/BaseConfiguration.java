@@ -26,7 +26,7 @@ public class BaseConfiguration {
 	private WebDriver driver;
 
 	public void setUpDriver() {
-		setFirefoxDriver();// Asigna el navegador a usar
+		setChromeDriver();// Asigna el navegador a usar
 		getDriver().manage().window().maximize();
 	}
 
