@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
  * Contiene la configuracion general de los tests
@@ -37,7 +39,9 @@ public class BaseConfiguration {
 	}
 
 	public void setFirefoxDriver() {
-		this.driver = new FirefoxDriver();
+		DesiredCapabilities dc = new DesiredCapabilities();
+		dc.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+		this.driver = new FirefoxDriver(dc);
 	}
 
 	public void setChromeDriver() {
