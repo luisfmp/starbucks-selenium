@@ -80,7 +80,9 @@ public class BaseConfiguration {
 	public void tearDown(ITestResult result) throws IOException {
 		if (result.getStatus() == ITestResult.FAILURE) {
 			File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile, new File(".\\" + this.getClass().getName() + "ScreenShot.jpg"));
+			String filePath = ".\\" + this.getClass().getName() + "ScreenShot.jpg";
+			System.out.println("===================================" + filePath);
+			FileUtils.copyFile(scrFile, new File(filePath));
 		}
 	}
 
