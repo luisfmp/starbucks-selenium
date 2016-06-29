@@ -45,7 +45,8 @@ public class OrderingTest extends BaseConfiguration {
 	}
 
 	@AfterMethod
-	public void tearDown(ITestResult result) throws IOException {
+	public void afterMethod(ITestResult result) throws IOException {
+		System.out.println("===================================" + result.getTestName() + "---" + result.getStatus());
 		if (result.getStatus() == ITestResult.FAILURE) {
 			File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 			String filePath = ".\\" + this.getClass().getName() + "ScreenShot.jpg";
