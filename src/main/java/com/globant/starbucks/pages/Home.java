@@ -3,6 +3,7 @@
  */
 package com.globant.starbucks.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +19,8 @@ public class Home extends HeaderAndFooter {
 
 	@FindBy(css = ".hp-slot-imagecontainer img[alt='Tea']")
 	private static WebElement teaImageLink;
+	
+	private static final String teaImageLinkCssPattern = ".hp-slot-imagecontainer img[alt='Tea']";
 
 	private static final String HOME = "http://store.starbucks.com/";
 
@@ -36,6 +39,7 @@ public class Home extends HeaderAndFooter {
 	 * @return La pagina de tipo Tea, entrando desde la imagen de la pagina principal
 	 */
 	public Tea goToTeaPageThroughImage() {
+		waitForElementVisible(By.cssSelector(teaImageLinkCssPattern));
 		teaImageLink.click();
 		return PageFactory.initElements(getDriver(), Tea.class);
 	}
