@@ -7,7 +7,7 @@ import com.globant.starbucks.pages.MenuEntry;
 
 public class Tea extends MenuEntry{
 
-	private static final String filtersTogglePattern = ".desktopview .swatchRefineLink[title='%s']";
+	private static final String xpathToggleFilter = "//div[contains(@class,'desktopview')]//a[@title='%s']";
 
 	public Tea(WebDriver driver) {
 		super(driver);
@@ -20,7 +20,7 @@ public class Tea extends MenuEntry{
 	 * @param title El nombre del filtro como aparece en la pagina Ej. "Tea Bags"
 	 */
 	public void toggleFilterByTitle(String title){
-		By filterLocator = By.cssSelector(String.format(filtersTogglePattern, title));
+		By filterLocator = By.xpath(String.format(xpathToggleFilter, title));
 		waitForElementVisible(filterLocator).click();
 	}
 
